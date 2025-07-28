@@ -1,0 +1,12 @@
+{% load menu_tags %}
+
+<li>
+  <a href="{{ item.url }}">{{ item.title }}</a>
+  {% if item.children_list %}
+    <ul>
+      {% for child in item.children_list %}
+        {% include 'menu/menu_item.html' with item=child %}
+      {% endfor %}
+    </ul>
+  {% endif %}
+</li>
